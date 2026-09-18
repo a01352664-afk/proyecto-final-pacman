@@ -49,6 +49,28 @@ documentación del código.
 8. Se hizo `merge` de la rama individual a `main`.
 9. Se documentó el proyecto en este `README.md`.
 
+## Estándares y normas aplicados
+
+Se seleccionaron y aplicaron los siguientes estándares de control de versiones
+vistos en clase, y a continuación se evalúa su cumplimiento:
+
+| Estándar aplicado | Cómo se aplicó | Evidencia | Cumplimiento |
+|---|---|---|---|
+| **Conventional Commits** (prefijos `feat:`, `docs:`, `fix:`, `merge:`) | Cada commit inicia con un tipo que describe la naturaleza del cambio (nueva funcionalidad, documentación, corrección o fusión), seguido de una descripción breve en modo imperativo | Historial de commits en la rama `A01352664_pacman` y en `main` (ver enlaces en el PDF de entrega) | ✅ Cumplido: los 7 commits del proyecto siguen el formato `tipo: descripción` sin excepción |
+| **Rama de trabajo individual con nomenclatura `<matrícula>_<juego>`** | Se creó la rama `A01352664_pacman` desde `main` antes de iniciar cualquier modificación | `git branch` y la rama visible en GitHub | ✅ Cumplido |
+| **Un commit por unidad de cambio** (nunca mezclar varias modificaciones en un solo commit) | La versión inicial, la traducción de comentarios y cada una de las 3 modificaciones solicitadas se subieron en commits separados | 7 commits distintos, cada uno con un solo propósito (`git log --oneline`) | ✅ Cumplido |
+| **Integración mediante `merge` explícito a `main`** | Se hizo `git merge` de la rama individual a `main` una vez terminadas y verificadas las modificaciones | Commit de merge en `main` | ✅ Cumplido |
+| **Verificación antes de cada commit** | Se corrió `python3 -m py_compile pacman.py` después de cada cambio para confirmar ausencia de errores de sintaxis antes de subirlo | Salida `OK` mostrada antes de cada commit de modificación | ✅ Cumplido |
+
+**Limitación detectada (transparencia):** la instalación de Python de las
+"Command Line Tools" de Apple en esta máquina usa Tcl/Tk 8.5.9, una versión con
+un bug conocido de renderizado en pantallas Retina que impide visualizar
+correctamente ventanas de `turtle` (la ventana aparece diminuta). Esto es un
+problema del entorno local, no del código: el archivo compila sin errores y el
+proceso corre sin excepciones. Para jugarlo visualmente sin este problema se
+recomienda usar una instalación de Python más reciente (ej. desde
+[python.org](https://www.python.org/downloads/), que incluye Tcl/Tk 8.6+).
+
 ## Cómo ejecutar el proyecto
 
 ```bash
