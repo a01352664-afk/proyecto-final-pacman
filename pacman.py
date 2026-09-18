@@ -14,16 +14,20 @@ from turtle import *
 
 from freegames import floor, vector
 
+# Velocidad de los fantasmas: se duplico respecto a la original (5)
+# para que resulten mas dificiles de evadir.
+GHOST_SPEED = 10
+
 state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
 aim = vector(5, 0)
 pacman = vector(-40, -80)
 ghosts = [
-    [vector(-180, 160), vector(5, 0)],
-    [vector(-180, -160), vector(0, 5)],
-    [vector(100, 160), vector(0, -5)],
-    [vector(100, -160), vector(-5, 0)],
+    [vector(-180, 160), vector(GHOST_SPEED, 0)],
+    [vector(-180, -160), vector(0, GHOST_SPEED)],
+    [vector(100, 160), vector(0, -GHOST_SPEED)],
+    [vector(100, -160), vector(-GHOST_SPEED, 0)],
 ]
 # fmt: off
 # Tablero nuevo con forma de "escalera/peine": dos pasillos horizontales
@@ -157,10 +161,10 @@ def move():
             point.move(course)
         else:
             options = [
-                vector(5, 0),
-                vector(-5, 0),
-                vector(0, 5),
-                vector(0, -5),
+                vector(GHOST_SPEED, 0),
+                vector(-GHOST_SPEED, 0),
+                vector(0, GHOST_SPEED),
+                vector(0, -GHOST_SPEED),
             ]
             plan = choice(options)
             course.x = plan.x
