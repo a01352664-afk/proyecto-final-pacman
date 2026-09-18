@@ -69,6 +69,26 @@ def square(x, y):
     path.end_fill()
 
 
+def food(x, y):
+    """Dibuja el alimento como un diamante naranja centrado en (x, y).
+
+    Antes el alimento era un punto blanco circular (path.dot). Se
+    reemplaza por una figura de diamante en color naranja para que
+    contraste mas con las paredes azules del tablero.
+    """
+    path.up()
+    path.color('orange')
+    path.goto(x, y - 6)
+    path.down()
+    path.begin_fill()
+    path.goto(x + 6, y)
+    path.goto(x, y + 6)
+    path.goto(x - 6, y)
+    path.goto(x, y - 6)
+    path.end_fill()
+    path.color('blue')
+
+
 def offset(point):
     """Regresa el índice del punto dentro de la lista de tiles."""
     x = (floor(point.x, 20) + 200) / 20
@@ -106,9 +126,7 @@ def world():
             square(x, y)
 
             if tile == 1:
-                path.up()
-                path.goto(x + 10, y + 10)
-                path.dot(2, 'white')
+                food(x + 10, y + 10)
 
 
 def move():
